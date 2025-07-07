@@ -30,6 +30,7 @@
         try {
           const response = await fetch('https://aibezobaw.app.n8n.cloud/webhook/okleinarki-upload', {
             method: 'POST',
+            mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ body: base64Image })
           });

@@ -28,15 +28,14 @@
         const base64Image = reader.result;
 
         try {
-          const response = await fetch('https://aibezobaw.app.n8n.cloud/webhook/okleinarki-upload', {
+          await fetch('https://aibezobaw.app.n8n.cloud/webhook/okleinarki-upload', {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ body: base64Image })
           });
 
-          const result = await response.json();
-          status.innerText = '✅ Zdjęcie wysłane!';
+          status.innerText = '📤 Wysłano – brak odpowiedzi z serwera (no-cors), ale wszystko powinno działać.';
         } catch (error) {
           status.innerText = '❌ Błąd: ' + error.message;
         }
